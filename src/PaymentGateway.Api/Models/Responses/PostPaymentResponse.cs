@@ -1,8 +1,12 @@
-﻿namespace PaymentGateway.Api.Models.Responses;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+
+namespace PaymentGateway.Api.Models.Responses;
 
 public class PostPaymentResponse
 {
     public Guid Id { get; set; }
+    [JsonConverter(typeof(StringEnumConverter))]
     public PaymentStatus Status { get; set; }
     public int CardNumberLastFour { get; set; }
     public int ExpiryMonth { get; set; }
